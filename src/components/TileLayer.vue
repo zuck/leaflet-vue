@@ -23,7 +23,7 @@ export default {
       console.debug("Creating tile layer...");
       return L.tileLayer(this.url, {
         noWrap: this.noWrap,
-        pane: this.pane,
+        pane: this.pane || 'overlayPane',
         zIndex: this.zIndex,
         minZoom: this.minZoom,
         maxZoom: this.maxZoom,

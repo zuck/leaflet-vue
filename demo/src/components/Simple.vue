@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import LeafletVue from 'leaflet-vue';
+import LeafletVue from 'leaflet-vue'
 
 export default {
   components: {
@@ -51,7 +51,6 @@ export default {
   methods: {
     zoomChanged(evt) {
       this.zoom = evt.target.getZoom()
-      this.$forceUpdate()
     }
   }
 }

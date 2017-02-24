@@ -23,10 +23,10 @@ import LeafletVue from 'leaflet-vue';
 export default {
   components: {
     'v-map': LeafletVue.Map,
-    'v-tilelayer' :LeafletVue.TileLayer,
-    'v-marker' :LeafletVue.Marker,
-    'v-tooltip' :LeafletVue.Tooltip,
-    'v-popup' :LeafletVue.Popup
+    'v-tilelayer': LeafletVue.TileLayer,
+    'v-marker': LeafletVue.Marker,
+    'v-tooltip': LeafletVue.Tooltip,
+    'v-popup': LeafletVue.Popup
   },
   computed: {
     strCenter: function() { return JSON.stringify(this.center) }

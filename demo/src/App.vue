@@ -46,6 +46,7 @@ export default {
 }
 
 @import "../../node_modules/leaflet/dist/leaflet.css";
+@import "./assets/css/infobox.css";
 
 #side {
   float:left;
@@ -60,5 +61,10 @@ export default {
   bottom:0;
   right:0;
   left:230px;
+}
+
+#container > div {
+  width:100%;
+  height:100%;
 }
 </style>

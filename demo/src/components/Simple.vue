@@ -13,7 +13,8 @@
         <v-popup :content="popupMsg"/>
       </v-marker>
     </v-map>
-    <div class="form">
+    <div class="infobox">
+      <h1>Simple map</h1>
       <label>ZOOM:</label>
       <input type="number" v-model="zoom" :min="minZoom" :max="maxZoom"/>
       <br/>
@@ -57,21 +58,4 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  width:100%;
-  height:100%;
-}
-
-.form {
-  position:absolute;
-  z-index:999;
-  top:10px;
-  left:55px;
-}
-
-.form label {
-  display: inline-block;
-  width: 6rem;
-  text-align: right;
-}
 </style>

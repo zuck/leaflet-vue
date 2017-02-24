@@ -4,12 +4,18 @@
 <script>
 import L from 'leaflet'
 import LeafletObject from '../mixins/LeafletObject.js'
+import AddToParent from '../mixins/AddToParent.js'
+import OverlayContainer from '../mixins/OverlayContainer.js'
+import Layer from '../mixins/Layer.js'
 import DivOverlay from '../mixins/DivOverlay.js'
 import ContentEditable from '../mixins/ContentEditable.js'
 
 export default {
   mixins: [
     LeafletObject,
+    AddToParent,
+    OverlayContainer,
+    Layer,
     DivOverlay,
     ContentEditable
   ],

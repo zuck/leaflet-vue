@@ -9,6 +9,7 @@ import L from 'leaflet'
 import LeafletObject from '../mixins/LeafletObject.js'
 import AddToParent from '../mixins/AddToParent.js'
 import OverlayContainer from '../mixins/OverlayContainer.js'
+import Layer from '../mixins/Layer.js'
 import Visibility from '../mixins/Visibility.js'
 
 export default {
@@ -16,6 +17,7 @@ export default {
     LeafletObject,
     AddToParent,
     OverlayContainer,
+    Layer,
     Visibility
   ],
   props: {

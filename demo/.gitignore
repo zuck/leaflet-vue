@@ -1,4 +1,4 @@
 .DS_Store
 node_modules/
-dist/leaflet-vue*
+dist/
 npm-debug.log

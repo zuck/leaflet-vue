@@ -1,6 +1,12 @@
 <template>
   <div class="container">
-    <v-map :zoom="zoom" :min="minZoom" :max="maxZoom" :center="center">
+    <v-map
+      :zoom="zoom"
+      :min="minZoom"
+      :max="maxZoom"
+      :center="center"
+      @zoomend="zoomChanged"
+    >
       <v-tilelayer :url="url" :attribution="attribution"/>
       <v-marker :lat-lng="center">
         <v-tooltip :content="strCenter" :direction="'bottom'"/>
@@ -40,6 +46,12 @@ export default {
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>',
       popupMsg: 'Hello World!'
+    }
+  },
+  methods: {
+    zoomChanged(evt) {
+      this.zoom = evt.target.getZoom()
+      this.$forceUpdate()
     }
   }
 }

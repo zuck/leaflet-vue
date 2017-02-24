@@ -18,6 +18,16 @@ export default {
       default: false
     }
   },
+  created() {
+    this.mapLeafletEvents([
+      'loading',
+      'tileunload',
+      'tileloadstart',
+      'tileerror',
+      'tileload',
+      'load'
+    ])
+  },
   methods: {
     createLeafletObject() {
       console.debug("Creating tile layer...");

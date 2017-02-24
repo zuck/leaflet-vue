@@ -2,6 +2,12 @@ import LeafletObject from './LeafletObject.js';
 
 module.exports = {
   mixins: [LeafletObject],
+  created() {
+    this.mapLeafletEvents([
+      'add',
+      'remove'
+    ])
+  },
   beforeDestroy() {
     this.removeFromParent()
   },

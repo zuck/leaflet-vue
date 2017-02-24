@@ -9,10 +9,11 @@
 <script>
 import L from 'leaflet'
 import LeafletObject from '../mixins/LeafletObject'
+import OverlayContainer from '../mixins/OverlayContainer'
 import ZoomMaxMin from '../mixins/ZoomMaxMin'
 
 export default {
-  mixins: [LeafletObject, ZoomMaxMin],
+  mixins: [LeafletObject, OverlayContainer, ZoomMaxMin],
   props: {
     center: {
       custom: true,
@@ -26,6 +27,28 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  created() {
+    this.mapLeafletEvents([
+      'baselayerchange',
+      'overlayadd',
+      'overlayremove',
+      'layeradd',
+      'layerremove',
+      'zoomlevelschange',
+      'resize',
+      'unload',
+      'viewreset',
+      'load',
+      'zoomstart',
+      'movestart',
+      'zoom',
+      'move',
+      'zoomend',
+      'moveend',
+      'autopanstart',
+      'zoomanim',
+    ])
   },
   mounted: function() {
     this.deferredMountedTo(this.$lfObj)

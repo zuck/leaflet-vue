@@ -24,6 +24,16 @@ export default {
       default: false
     }
   },
+  created() {
+    this.mapLeafletEvents([
+      'move',
+      'dragstart',
+      'movestart',
+      'drag',
+      'dragend',
+      'moveend'
+    ])
+  },
   methods: {
     createLeafletObject() {
       console.debug("Creating marker...");

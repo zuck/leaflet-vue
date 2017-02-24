@@ -1,6 +1,14 @@
 module.exports = {
   mounted: function() {
+    // Create Leaflet object.
     this.$lfObj = this.createLeafletObject()
+    // Map Leaflet events to Vue events.
+    if (this.$lfObj && this.$lfEventMappings) {
+      this.$lfEventMappings.forEach(eventName => {
+        this.$lfObj.on(eventName, ev => this.$emit(eventName, ev))
+      })
+    }
+    // Deferred mount of children elements.
     if (this.$lfObj && this.$parent && this.$parent.$lfObj) {
       this.deferredMountedTo(this.$parent.$lfObj)
     }
@@ -23,6 +31,13 @@ module.exports = {
     },
     createLeafletObject: function() {
       return null
+    },
+    mapLeafletEvents: function(mappings) {
+      this.$lfEventMappings = this.$lfEventMappings || []
+      if (typeof mappings === 'function') {
+        mappings = mappings()
+      }
+      this.$lfEventMappings = this.$lfEventMappings.concat(mappings)
     },
     beforeDeferredMount: function(parent) {
       // Do nothing.

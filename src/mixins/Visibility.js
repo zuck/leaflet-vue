@@ -1,7 +1,4 @@
-import AddToParent from './AddToParent.js';
-
 module.exports = {
-  mixins: [AddToParent],
   props: {
     visible: {
       type: Boolean,

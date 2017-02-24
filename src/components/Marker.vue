@@ -6,10 +6,18 @@
 
 <script>
 import L from 'leaflet'
+import LeafletObject from '../mixins/LeafletObject.js'
+import AddToParent from '../mixins/AddToParent.js'
+import OverlayContainer from '../mixins/OverlayContainer.js'
 import Visibility from '../mixins/Visibility.js'
 
 export default {
-  mixins: [Visibility],
+  mixins: [
+    LeafletObject,
+    AddToParent,
+    OverlayContainer,
+    Visibility
+  ],
   props: {
     latLng: {
       custom: true,
@@ -36,14 +44,11 @@ export default {
   },
   methods: {
     createLeafletObject() {
-      console.debug("Creating marker...");
-      const options = {
-        draggable: this.draggable
-      };
-      if (this.icon) {
-        options.icon = this.icon
-      }
-      return L.marker(this.latLng, options)
+      console.debug("Creating marker...")
+      return L.marker(this.latLng, {
+        draggable: this.draggable,
+        icon: this.icon
+      })
     },
     setLatLng(newVal, oldVal) {
       if (newVal == oldVal) return

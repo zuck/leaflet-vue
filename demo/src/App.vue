@@ -7,6 +7,9 @@
         <li>
           <a href="#" @click="currentView='simple'">Simple map</a>
         </li>
+        <li>
+          <a href="#" @click="currentView='geo-json-test'">Map + GeoJSON</a>
+        </li>
       </ul>
     </div>
     <div id="container">
@@ -18,11 +21,13 @@
 <script>
 
 import Simple from './components/Simple'
+import GeoJsonTest from './components/GeoJsonTest'
 
 export default {
   name: 'app',
   components: {
-    Simple
+    Simple,
+    GeoJsonTest
   },
   data () {
     return {

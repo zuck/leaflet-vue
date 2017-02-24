@@ -3,11 +3,16 @@
 
 <script>
 import L from 'leaflet'
+import LeafletObject from '../mixins/LeafletObject.js'
 import DivOverlay from '../mixins/DivOverlay.js'
 import ContentEditable from '../mixins/ContentEditable.js'
 
 export default {
-  mixins: [DivOverlay, ContentEditable],
+  mixins: [
+    LeafletObject,
+    DivOverlay,
+    ContentEditable
+  ],
   props: {
     autoPan: {
       type: Boolean,

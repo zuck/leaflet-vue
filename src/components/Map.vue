@@ -9,11 +9,17 @@
 <script>
 import L from 'leaflet'
 import LeafletObject from '../mixins/LeafletObject'
+import LayerContainer from '../mixins/LayerContainer.js'
 import OverlayContainer from '../mixins/OverlayContainer'
 import ZoomMaxMin from '../mixins/ZoomMaxMin'
 
 export default {
-  mixins: [LeafletObject, OverlayContainer, ZoomMaxMin],
+  mixins: [
+    LeafletObject,
+    LayerContainer,
+    OverlayContainer,
+    ZoomMaxMin
+  ],
   props: {
     center: {
       custom: true,
@@ -33,8 +39,6 @@ export default {
       'baselayerchange',
       'overlayadd',
       'overlayremove',
-      'layeradd',
-      'layerremove',
       'zoomlevelschange',
       'resize',
       'unload',

@@ -3,11 +3,20 @@
 
 <script>
 import L from 'leaflet'
-import Layer from '../mixins/Layer'
+import LeafletObject from '../mixins/LeafletObject.js'
+import AddToParent from '../mixins/AddToParent.js'
+import OverlayContainer from '../mixins/OverlayContainer.js'
+import Layer from '../mixins/Layer.js'
 import ZoomMaxMin from '../mixins/ZoomMaxMin'
 
 export default {
-  mixins: [Layer, ZoomMaxMin],
+  mixins: [
+    LeafletObject,
+    AddToParent,
+    OverlayContainer,
+    Layer,
+    ZoomMaxMin
+  ],
   props: {
     url: {
       type: String,

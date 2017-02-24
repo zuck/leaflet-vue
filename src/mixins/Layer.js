@@ -1,8 +1,4 @@
-import AddToParent from './AddToParent.js'
-import OverlayContainer from './OverlayContainer.js'
-
 module.exports = {
-  mixins: [AddToParent, OverlayContainer],
   props: {
     zIndex: {
       type: Number,

@@ -8,12 +8,15 @@
       @zoomend="zoomChanged"
     >
       <v-tilelayer :url="url" :attribution="attribution"/>
-      <v-geojson :geojson-data="geojsonData" :feature-style="geojsonStyle"/>
+      <v-geojson :geojson-data="geojsonData" :feature-style="geojsonStyle" :visible="showGeoJson"/>
     </v-map>
     <div class="infobox">
       <h1>Map + GeoJSON</h1>
       <label>ZOOM:</label>
       <input type="number" v-model="zoom" :min="minZoom" :max="maxZoom"/>
+      <br/>
+      <label>GeoJSON?</label>
+      <input type="checkbox" v-model="showGeoJson"/>
     </div>
   </div>
 </template>
@@ -45,7 +48,8 @@ export default {
           fillColor: '#e4ce7f',
           fillOpacity: 0.5
         }
-      }
+      },
+      showGeoJson: true
     }
   },
   methods: {

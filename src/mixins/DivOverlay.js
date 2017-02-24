@@ -1,10 +1,11 @@
-import L from 'leaflet'
+import Layer from './Layer.js'
 
 module.exports = {
+  mixins: [Layer],
   props: {
     offset: {
-      type: Object,
-      default: L.point(0, 7)
+      custom: true,
+      default: function() { return null }
     }
   }
 }

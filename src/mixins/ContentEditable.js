@@ -7,7 +7,7 @@ module.exports = {
   },
   methods: {
     setContent(newVal, oldVal) {
-      if (newVal === oldVal) return;
+      if (newVal == oldVal) return;
       if (this.$lfObj) {
         this.$lfObj.setContent(newVal)
       }

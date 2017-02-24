@@ -1,15 +1,15 @@
-import AddToParent from './AddToParent.js';
+import AddToParent from './AddToParent.js'
 
 module.exports = {
   mixins: [AddToParent],
   props: {
-    pane: {
-      type: String,
-      default: 'overlayPane'
-    },
     zIndex: {
       type: Number,
       default: 1
+    },
+    pane: {
+      type: String,
+      default: null
     },
     attribution: {
       type: String,

@@ -6,6 +6,13 @@ module.exports = {
     }
   },
   methods: {
+    beforeDeferredMount(parent) {
+      // Store parent but attach to it only if visible is true.
+      this.$lfParent = parent
+      if (this.visible) {
+        this.addToParent(parent)
+      }
+    },
     setVisible(newVal, oldVal) {
       if (newVal == oldVal) return
       if (newVal) {

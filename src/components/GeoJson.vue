@@ -29,7 +29,7 @@ export default {
       default: null
     },
     featureStyle: {
-      type: Function
+      custom: true
     },
     onEachFeature: {
       object: Function

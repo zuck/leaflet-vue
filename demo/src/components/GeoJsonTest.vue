@@ -8,7 +8,8 @@
       @zoomend="zoomChanged"
     >
       <v-tilelayer :url="url" :attribution="attribution"/>
-      <v-geojson :geojson-data="geojsonData" :feature-style="geojsonStyle" :visible="showGeoJson"/>
+      <v-geojson :geojson-data="frGeoJsonData" :feature-style="geoJsonStyleObj" :visible="showGeoJson"/>
+      <v-geojson :geojson-data="itGeoJsonData" :feature-style="geoJsonStyleFn" :visible="showGeoJson"/>
     </v-map>
     <div class="infobox">
       <h1>Map + GeoJSON</h1>
@@ -23,7 +24,8 @@
 
 <script>
 import LeafletVue from 'leaflet-vue'
-import geojsonItaly from '../assets/geojson/italy.json'
+import itGeoJsonData from '../assets/geojson/italy.json'
+import frGeoJsonData from '../assets/geojson/france.json'
 
 export default {
   components: {
@@ -39,8 +41,9 @@ export default {
       center: [46.06482, 13.23566],
       url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
       attribution:'&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>',
-      geojsonData: geojsonItaly,
-      geojsonStyle: function (feature) {
+      itGeoJsonData: itGeoJsonData,
+      frGeoJsonData: frGeoJsonData,
+      geoJsonStyleFn: function (feature) {
         return {
           weight: 4,
           color: '#e47647',
@@ -48,6 +51,12 @@ export default {
           fillColor: '#e4ce7f',
           fillOpacity: 0.5
         }
+      },
+      geoJsonStyleObj: {
+        weight: 4,
+        color: 'yellow',
+        fillColor: 'yellow',
+        fillOpacity: 0.3
       },
       showGeoJson: true
     }

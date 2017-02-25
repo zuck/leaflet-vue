@@ -48,7 +48,9 @@ export default {
         style: this.featureStyle,
         onEachFeature: this.onEachFeature,
         filter: this.filter,
-        coordsToLatLng: this.coordsToLatLng
+        coordsToLatLng: this.coordsToLatLng,
+        pane: this.pane || 'overlayPane',
+        attribution: this.attribution
       })
     },
     setGeoJsonData(newVal, oldVal) {

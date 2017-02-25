@@ -11,6 +11,7 @@ import AddToParent from '../mixins/AddToParent.js'
 import OverlayContainer from '../mixins/OverlayContainer.js'
 import Layer from '../mixins/Layer.js'
 import Visibility from '../mixins/Visibility.js'
+import AtLatLng from '../mixins/AtLatLng.js'
 
 export default {
   mixins: [
@@ -18,13 +19,10 @@ export default {
     AddToParent,
     OverlayContainer,
     Layer,
-    Visibility
+    Visibility,
+    AtLatLng
   ],
   props: {
-    latLng: {
-      custom: true,
-      default: null
-    },
     icon: {
       custom: false,
       default: function() { return new L.Icon.Default(); }
@@ -49,14 +47,9 @@ export default {
       console.debug("Creating marker...")
       return L.marker(this.latLng, {
         draggable: this.draggable,
-        icon: this.icon
+        icon: this.icon,
+        pane: this.pane || 'markerPane'
       })
-    },
-    setLatLng(newVal, oldVal) {
-      if (newVal == oldVal) return
-      if (this.$lfObj) {
-        this.$lfObj.setLatLng(newVal)
-      }
     },
     setIcon(newVal, oldVal) {
       if (newVal == oldVal) return
@@ -72,9 +65,6 @@ export default {
     }
   },
   watch: {
-    latLng: function (newVal, oldVal) {
-      this.setLatLng(newVal, oldVal)
-    },
     icon: function (newVal, oldVal) {
       this.setIcon(newVal, oldVal)
     },

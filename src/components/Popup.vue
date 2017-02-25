@@ -9,6 +9,7 @@ import OverlayContainer from '../mixins/OverlayContainer.js'
 import Layer from '../mixins/Layer.js'
 import DivOverlay from '../mixins/DivOverlay.js'
 import ContentEditable from '../mixins/ContentEditable.js'
+import AtLatLng from '../mixins/AtLatLng.js'
 
 export default {
   mixins: [
@@ -17,7 +18,8 @@ export default {
     OverlayContainer,
     Layer,
     DivOverlay,
-    ContentEditable
+    ContentEditable,
+    AtLatLng
   ],
   props: {
     autoPan: {
@@ -53,7 +55,9 @@ export default {
         closeButton: this.closeButton,
         closeOnClick: this.closeOnClick,
         autoClose: this.autoClose
-      }).setContent(this.content)
+      })
+      .setContent(this.content)
+      .setLatLng(this.latLng)
     },
     addToParent(parent) {
       if (this.$lfObj && parent) {

@@ -10,6 +10,9 @@
         <li>
           <a href="#" @click="currentView='geo-json-test'">Map + GeoJSON</a>
         </li>
+        <li>
+          <a href="#" @click="currentView='shape-line-test'">Shapes &amp; Lines</a>
+        </li>
       </ul>
     </div>
     <div id="container">
@@ -22,12 +25,14 @@
 
 import Simple from './components/Simple'
 import GeoJsonTest from './components/GeoJsonTest'
+import ShapeLineTest from './components/ShapeLineTest'
 
 export default {
   name: 'app',
   components: {
     Simple,
-    GeoJsonTest
+    GeoJsonTest,
+    ShapeLineTest
   },
   data () {
     return {

@@ -62,14 +62,26 @@ export default {
     addToParent(parent) {
       if (this.$lfObj && parent) {
         this.$lfParent = parent
-        this.$lfParent.bindPopup(this.$lfObj)
+        if (this.$lfParent.bindPopup) {
+          this.$lfParent.bindPopup(this.$lfObj)
+        }
+        else {
+          this.$lfParent.openPopup(this.$lfObj)
+        }
       }
     },
     removeFromParent() {
-      var parentObj = null;
-      if (this.$lfObj && this.$lfParent && this.$lfParent.getPopup() === this.$lfObj) {
+      var parentObj = null
+      if (this.$lfObj &&
+          this.$lfParent &&
+          (!this.$lfParent.getPopup || this.$lfParent.getPopup() === this.$lfObj)) {
         parentObj = this.$lfParent
-        this.$lfParent.unbindPopup()
+        if (this.$lfParent.unbindPopup) {
+          this.$lfParent.unbindPopup()
+        }
+        else {
+          this.$lfParent.closePopup()
+        }
       }
       this.$lfParent = null
       return parentObj

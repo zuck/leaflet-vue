@@ -52,6 +52,12 @@ export default {
       'moveend',
       'autopanstart',
       'zoomanim',
+      'click',
+      'dblclick',
+      'mousedown',
+      'mouseover',
+      'mouseout',
+      'contextmenu'
     ])
   },
   mounted: function() {
@@ -69,9 +75,11 @@ export default {
       })
     },
     afterDeferredMount(parent) {
-      this.$lfObj.whenReady(function() {
-        this.$emit('ready')
-      }, this)
+      if (this.$lfObj) {
+        this.$lfObj.whenReady(function() {
+          this.$emit('ready')
+        }, this)
+      }
     },
     panTo(newVal, oldVal) {
       if (newVal == oldVal) return

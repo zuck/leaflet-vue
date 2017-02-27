@@ -2,7 +2,7 @@ module.exports = {
   props: {
     latLng: {
       custom: true,
-      default: null
+      default: function() { return [0,0] }
     }
   },
   methods: {

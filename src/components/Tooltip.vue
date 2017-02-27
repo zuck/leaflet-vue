@@ -43,19 +43,32 @@ export default {
         direction: this.direction,
         permanent: this.permanent,
         sticky: this.sticky
-      }).setContent(this.content)
-    },
+      })
+      .setContent(this.content)
+    },    
     addToParent(parent) {
       if (this.$lfObj && parent) {
         this.$lfParent = parent
-        this.$lfParent.bindTooltip(this.$lfObj)
+        if (this.$lfParent.bindTooltip) {
+          this.$lfParent.bindTooltip(this.$lfObj)
+        }
+        else {
+          this.$lfParent.openTooltip(this.$lfObj)
+        }
       }
     },
     removeFromParent() {
       var parentObj = null
-      if (this.$lfObj && this.$lfParent && this.$lfParent.getTooltip() === this.$lfObj) {
+      if (this.$lfObj &&
+          this.$lfParent &&
+          (!this.$lfParent.getTooltip || this.$lfParent.getTooltip() === this.$lfObj)) {
         parentObj = this.$lfParent
-        this.$lfParent.unbindTooltip()
+        if (this.$lfParent.unbindTooltip) {
+          this.$lfParent.unbindTooltip()
+        }
+        else {
+          this.$lfParent.closeTooltip()
+        }
       }
       this.$lfParent = null
       return parentObj
